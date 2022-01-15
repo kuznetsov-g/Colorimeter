@@ -38,29 +38,37 @@ class ViewController: UIViewController {
 
 
     @IBAction func addRedComponent (_ sender: Any) {
-        
+        changeColorSettings(color: .red, volume: redSlider.value)
     }
     
     @IBAction func addGreenComponent (_ sender: Any) {
+        changeColorSettings(color: .green, volume: greenSlider.value)
     }
     
     @IBAction func addBlueComponent (_ sender: Any) {
+        changeColorSettings(color: .blue, volume: blueSlider.value)
     }
     
 }
 
-// MARK: color change method
+// MARK: color and label value change method
 extension ViewController {
     private func changeColorSettings (color: rgbColors,
-                                      volume: CGFloat
+                                      volume: Float
                                      ) {
         switch color {
-        case .red:   redVolume   = volume
-        case .green: greenVolume = volume
-        case .blue:  blueVolume  = volume
+        case .red:
+            redVolume = CGFloat(volume)
+            redValue.text = "\(String(format: "%.2f", volume))"
+        case .green:
+            greenVolume = CGFloat(volume)
+            greenValue.text = "\(String(format: "%.2f", volume))"
+        case .blue:
+            blueVolume = CGFloat(volume)
+            blueValue.text = "\(String(format: "%.2f", volume))"
         }
         
-        
+        changeViewColor()
     }
     
     private func changeViewColor () {
@@ -72,8 +80,3 @@ extension ViewController {
     }
 }
 
-
-//MARK: labels change method
-extension ViewController {
-    
-}
