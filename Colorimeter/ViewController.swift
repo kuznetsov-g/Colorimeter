@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     
 }
 
-// MARK: color and label value change method
+// MARK: color and label value changing method
 extension ViewController {
     private func changeColorSettings (color: rgbColors,
                                       volume: Float
