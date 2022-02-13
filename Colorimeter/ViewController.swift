@@ -56,6 +56,7 @@ class ViewController: UIViewController {
                            green: greenVolume,
                            blue: blueVolume)
         print ("tryButton pressed")
+        dismiss(animated: true)
     }
     
     @IBAction func addRedComponent (_ sender: Any) {

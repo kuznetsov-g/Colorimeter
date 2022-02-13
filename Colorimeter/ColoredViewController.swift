@@ -47,6 +47,9 @@ extension ColoredViewController {
         guard let MainVC = segue.destination as? ViewController else { return }
         MainVC.delegate = self
         print("prepare")
+        MainVC.redVolume = redValue
+        MainVC.greenVolume = greenValue
+        MainVC.blueVolume = blueValue
     }
     
     @IBAction override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
