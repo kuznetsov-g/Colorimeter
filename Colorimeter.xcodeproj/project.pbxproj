@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CCFD1F727B923DE00868391 /* ColoredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCFD1F627B923DE00868391 /* ColoredViewController.swift */; };
 		2CF8A1CF2790A83900EB1226 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8A1CE2790A83900EB1226 /* AppDelegate.swift */; };
 		2CF8A1D12790A83900EB1226 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8A1D02790A83900EB1226 /* SceneDelegate.swift */; };
 		2CF8A1D32790A83900EB1226 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8A1D22790A83900EB1226 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2CCFD1F627B923DE00868391 /* ColoredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredViewController.swift; sourceTree = "<group>"; };
 		2CF8A1CB2790A83900EB1226 /* Colorimeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Colorimeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF8A1CE2790A83900EB1226 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF8A1D02790A83900EB1226 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				2CF8A1CE2790A83900EB1226 /* AppDelegate.swift */,
 				2CF8A1D02790A83900EB1226 /* SceneDelegate.swift */,
 				2CF8A1D22790A83900EB1226 /* ViewController.swift */,
+				2CCFD1F627B923DE00868391 /* ColoredViewController.swift */,
 				2CF8A1D42790A83900EB1226 /* Main.storyboard */,
 				2CF8A1D72790A83A00EB1226 /* Assets.xcassets */,
 				2CF8A1D92790A83A00EB1226 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CF8A1D32790A83900EB1226 /* ViewController.swift in Sources */,
+				2CCFD1F727B923DE00868391 /* ColoredViewController.swift in Sources */,
 				2CF8A1CF2790A83900EB1226 /* AppDelegate.swift in Sources */,
 				2CF8A1D12790A83900EB1226 /* SceneDelegate.swift in Sources */,
 			);
