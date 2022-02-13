@@ -162,7 +162,8 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="B4u-hb-bWv" kind="presentation" modalPresentationStyle="fullScreen" id="VCs-79-51k"/>
+                                    <action selector="tryButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2ax-aS-krr"/>
+                                    <segue destination="VQw-MV-cUY" kind="unwind" unwindAction="unwindFor:towards:" id="sS9-hh-NTs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -193,6 +194,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="VQw-MV-cUY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="116.51785714285714"/>
         </scene>

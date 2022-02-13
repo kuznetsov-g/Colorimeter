@@ -7,9 +7,11 @@
 
 import UIKit
 
-protocol ColoredVCDelegate {
+/*protocol ColoredVCDelegate {
     func getColors(red: Float, green: Float, blue: Float)
-}
+}*/
+
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var colorPlace: UIView!
@@ -28,7 +30,7 @@ class ViewController: UIViewController {
     var redVolume: Float = 0.7
     var greenVolume: Float = 0.7
     var blueVolume: Float = 0.7
-
+    var delegate: ViewControllerDelegate!
     
     private enum rgbColors {
         case red, green, blue
@@ -49,8 +51,13 @@ class ViewController: UIViewController {
         changeColorSettings(color: .blue, volume: blueVolume)
                                             
     }
-
-
+    @IBAction func tryButton(_ sender: Any) {
+        delegate.getColors(red: redVolume,
+                           green: greenVolume,
+                           blue: blueVolume)
+        print ("tryButton pressed")
+    }
+    
     @IBAction func addRedComponent (_ sender: Any) {
         changeColorSettings(color: .red, volume: redSlider.value)
     }
@@ -64,6 +71,7 @@ class ViewController: UIViewController {
     }
     
 }
+
 
 // MARK: color and label value changing method
 extension ViewController {
@@ -121,23 +129,11 @@ extension ViewController: UITextFieldDelegate {
     }
 }
 
-extension ViewController {
+/*extension ViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let coloredVC = segue.destination as? ColoredViewController else { return }
-        coloredVC.delegate = self
         coloredVC.redValue = Float(redVolume)
         coloredVC.greenValue = Float(greenVolume)
         coloredVC.blueValue = Float(blueVolume)
     }
-}
-
-extension ViewController: ColoredVCDelegate {
-    func getColors(red: Float, green: Float, blue: Float) {
-         redVolume = red
-         greenVolume = green
-         blueVolume = blue
-
-    }
-    
-    
-}
+}*/
