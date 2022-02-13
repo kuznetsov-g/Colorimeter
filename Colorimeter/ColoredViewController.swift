@@ -14,14 +14,7 @@ class ColoredViewController: UIViewController {
     var redValue: Float = 1
     var greenValue: Float = 1
     var blueValue: Float = 1
-    
-    
-    
-    @IBAction func paintButtonPressed(_ sender: Any) {
 
-        print("delegate is worked")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: CGFloat(redValue),
@@ -30,7 +23,12 @@ class ColoredViewController: UIViewController {
                                        alpha: 1
                                       )
     }
+    
+    @IBAction func paintButtonPressed(_ sender: Any) {
+        print("delegate is worked")
+    }
 }
+
 
 extension ColoredViewController: ViewControllerDelegate {
     func getColors(red: Float, green: Float, blue: Float) {
@@ -38,9 +36,8 @@ extension ColoredViewController: ViewControllerDelegate {
         greenValue = green
         blueValue = blue
     }
-    
-    
 }
+
 
 extension ColoredViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,7 +50,7 @@ extension ColoredViewController {
     }
     
     @IBAction override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
-        print("unwind")
+
     }
 }
 

@@ -7,11 +7,6 @@
 
 import UIKit
 
-/*protocol ColoredVCDelegate {
-    func getColors(red: Float, green: Float, blue: Float)
-}*/
-
-
 class ViewController: UIViewController {
 
     @IBOutlet weak var colorPlace: UIView!
@@ -109,6 +104,7 @@ extension ViewController {
     }
 }
 
+
 // MARK: work with textFields
 extension ViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -129,12 +125,3 @@ extension ViewController: UITextFieldDelegate {
         }
     }
 }
-
-/*extension ViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let coloredVC = segue.destination as? ColoredViewController else { return }
-        coloredVC.redValue = Float(redVolume)
-        coloredVC.greenValue = Float(greenVolume)
-        coloredVC.blueValue = Float(blueVolume)
-    }
-}*/
