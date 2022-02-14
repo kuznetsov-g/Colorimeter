@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var colorPlace: UIView!
+    
     @IBOutlet weak var redValue: UILabel!
     @IBOutlet weak var greenValue: UILabel!
     @IBOutlet weak var blueValue: UILabel!
@@ -49,7 +50,6 @@ class ViewController: UIViewController {
     @IBAction func tryButton(_ sender: Any) {
         guard let color = colorPlace.backgroundColor else { return }
         delegate.getColors(backgroundColor: color )
-        print ("tryButton pressed")
         dismiss(animated: true)
     }
     
@@ -90,7 +90,6 @@ extension ViewController {
             blueTextField.text = blueValue.text
             blueSlider.value = Float(volume)
         }
-        
         changeViewColor()
     }
     

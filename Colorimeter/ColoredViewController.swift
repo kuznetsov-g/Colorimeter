@@ -23,13 +23,10 @@ class ColoredViewController: UIViewController {
                                        alpha: 1
                                       )
     }
-    
-    @IBAction func paintButtonPressed(_ sender: Any) {
-        print("delegate is worked")
-    }
 }
 
 
+// MARK: protocol method
 extension ColoredViewController: ViewControllerDelegate {
     func getColors(backgroundColor: UIColor) {
         view.backgroundColor = backgroundColor
@@ -37,12 +34,12 @@ extension ColoredViewController: ViewControllerDelegate {
 }
 
 
+// MARK: Work with segue
 extension ColoredViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let MainVC = segue.destination as? ViewController else { return }
         let viewColor = CIColor(color: self.view.backgroundColor ?? UIColor.red)
         MainVC.delegate = self
-        print("prepare")
         MainVC.redVolume = viewColor.red
         MainVC.greenVolume = viewColor.green
         MainVC.blueVolume = viewColor.blue
