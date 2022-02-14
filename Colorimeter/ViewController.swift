@@ -22,9 +22,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenTextField: UITextField!
     @IBOutlet weak var blueTextField: UITextField!
     
-    var redVolume: Float = 0.7
-    var greenVolume: Float = 0.7
-    var blueVolume: Float = 0.7
+    var redVolume: CGFloat = 0.7
+    var greenVolume: CGFloat = 0.7
+    var blueVolume: CGFloat = 0.7
     var delegate: ViewControllerDelegate!
     
     private enum rgbColors {
@@ -37,9 +37,9 @@ class ViewController: UIViewController {
         greenTextField.delegate = self
         blueTextField.delegate = self
         
-        redTextField.text = String(redVolume)
-        greenTextField.text = String(greenVolume)
-        blueTextField.text = String(blueVolume)
+        redTextField.text = String(Float(redVolume))
+        greenTextField.text = String(Float(greenVolume))
+        blueTextField.text = String(Float(blueVolume))
         
         changeColorSettings(color: .red, volume: redVolume)
         changeColorSettings(color: .green, volume: greenVolume)
@@ -47,23 +47,22 @@ class ViewController: UIViewController {
                                             
     }
     @IBAction func tryButton(_ sender: Any) {
-        delegate.getColors(red: redVolume,
-                           green: greenVolume,
-                           blue: blueVolume)
+        guard let color = colorPlace.backgroundColor else { return }
+        delegate.getColors(backgroundColor: color )
         print ("tryButton pressed")
         dismiss(animated: true)
     }
     
     @IBAction func addRedComponent (_ sender: Any) {
-        changeColorSettings(color: .red, volume: redSlider.value)
+        changeColorSettings(color: .red, volume: CGFloat(redSlider.value))
     }
     
     @IBAction func addGreenComponent (_ sender: Any) {
-        changeColorSettings(color: .green, volume: greenSlider.value)
+        changeColorSettings(color: .green, volume: CGFloat(greenSlider.value))
     }
     
     @IBAction func addBlueComponent (_ sender: Any) {
-        changeColorSettings(color: .blue, volume: blueSlider.value)
+        changeColorSettings(color: .blue, volume: CGFloat(blueSlider.value))
     }
     
 }
@@ -71,9 +70,9 @@ class ViewController: UIViewController {
 
 // MARK: color and label value changing method
 extension ViewController {
-    private func changeColorSettings (color: rgbColors,
-                                      volume: Float
-                                     ) {
+    private func changeColorSettings(color: rgbColors,
+                                     volume: CGFloat
+                                    ) {
         switch color {
         case .red:
             redVolume = volume
@@ -111,15 +110,15 @@ extension ViewController: UITextFieldDelegate {
         switch textField {
         case redTextField:
             guard let text = redTextField.text else { return }
-            changeColorSettings(color: .red, volume: Float(text) ?? 0.5)
+            changeColorSettings(color: .red, volume: CGFloat(Float(text) ?? 0.5))
             //довольно странная конструкция, но только она не вызывала у меня ошибок.
             // подобный вариант где-то на просторах интернета нашел.
         case greenTextField:
             guard let text = greenTextField.text else { return }
-            changeColorSettings(color: .green, volume: Float(text) ?? 0.5)
+            changeColorSettings(color: .green, volume: CGFloat(Float(text) ?? 0.5))
         case blueTextField:
             guard let text = blueTextField.text else { return }
-            changeColorSettings(color: .blue, volume: Float(text) ?? 0.5)
+            changeColorSettings(color: .blue, volume: CGFloat(Float(text) ?? 0.5))
         default:
             print("Надеюсь, мы никогда не увидим это сообщение")
         }

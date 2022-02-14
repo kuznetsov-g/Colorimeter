@@ -7,13 +7,13 @@
 
 import UIKit
 protocol ViewControllerDelegate {
-    func getColors(red: Float, green: Float, blue: Float)
+    func getColors(backgroundColor: UIColor)
 }
 
 class ColoredViewController: UIViewController {
-    var redValue: Float = 1
-    var greenValue: Float = 1
-    var blueValue: Float = 1
+    var redValue: Float = 0.9
+    var greenValue: Float = 0.9
+    var blueValue: Float = 0.9
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +31,8 @@ class ColoredViewController: UIViewController {
 
 
 extension ColoredViewController: ViewControllerDelegate {
-    func getColors(red: Float, green: Float, blue: Float) {
-        redValue = red
-        greenValue = green
-        blueValue = blue
+    func getColors(backgroundColor: UIColor) {
+        view.backgroundColor = backgroundColor
     }
 }
 
@@ -42,11 +40,12 @@ extension ColoredViewController: ViewControllerDelegate {
 extension ColoredViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let MainVC = segue.destination as? ViewController else { return }
+        let viewColor = CIColor(color: self.view.backgroundColor ?? UIColor.red)
         MainVC.delegate = self
         print("prepare")
-        MainVC.redVolume = redValue
-        MainVC.greenVolume = greenValue
-        MainVC.blueVolume = blueValue
+        MainVC.redVolume = viewColor.red
+        MainVC.greenVolume = viewColor.green
+        MainVC.blueVolume = viewColor.blue
     }
     
     @IBAction override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
